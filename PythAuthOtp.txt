@@ -1,0 +1,26 @@
+import os
+import math
+import random
+import smtplib
+
+digits = "213456789"
+OTP = ""
+
+for i in range(5):
+    OTP += digits[math.floor(random.random() * 10)]
+
+otp = " WELCOME MAAM/SIR, THIS IS YOUR OTP : " + OTP
+message = otp
+
+s = smtplib.SMTP('smtp.gmail.com', 587)
+s.starttls()
+
+emailid = input("\n Enter your email: ")
+s.login("siddhisarote201@gmail.com", "ebliepxpexfonirx")
+s.sendmail('&&&&&&', emailid, message)
+
+a = input(" \n ENTER YOUR OTP HERE  >>: ")
+if a == OTP:
+    print(" \n THANKYOU , YOUR OTP IS SUCCESSFULLY VERIFIED !!!!")
+else:
+    print(" \n OH, YOU HAVE ENTERED WRONG OTP, PLEASE CHECK YOUR OTP ONCE AGAIN AND RE-ENTER : ")
